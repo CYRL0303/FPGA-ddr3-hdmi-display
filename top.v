@@ -111,9 +111,6 @@ wire	[15:0]	rfifo_rd_data;
 
 
 
-//=============================================================================
-//**************    Main Code   **************
-//=============================================================================
 //CLOCKING WIZARD
 
   clk_wiz_0 clk_wiz_0
@@ -261,7 +258,7 @@ hdmi_top	hdmi_top_inst(
 
 mig_7series_0 u_mig_7series_0 (
         // Memory interface ports
-        // 以ddr3_为前�?的这�?类端口，是与DDR3芯片相连
+        // ä»¥ddr3_ä¸ºåç¼?çè¿ä¸?ç±»ç«¯å£ï¼æ¯ä¸DDR3è¯çç¸è¿
         .ddr3_addr              (ddr3_addr              ),  // output [13:0]		ddr3_addr
         .ddr3_ba                (ddr3_ba                ),  // output [2:0]		ddr3_ba
         .ddr3_cas_n             (ddr3_cas_n             ),  // output			ddr3_cas_n
@@ -278,9 +275,9 @@ mig_7series_0 u_mig_7series_0 (
         .ddr3_dm                (ddr3_dm                ),  // output [1:0]		ddr3_dm
         .ddr3_odt               (ddr3_odt               ),  // output [0:0]		ddr3_odt
         // Application interface ports
-        // init_calib_complete 拉高之前，不操作AXI接口
+        // init_calib_complete æé«ä¹åï¼ä¸æä½AXIæ¥å£
         .init_calib_complete    (init_calib_complete    ),  // output			init_calib_complete
-        // AXI接口信号�?要与ui_clk 保持同步
+        // AXIæ¥å£ä¿¡å·é?è¦ä¸ui_clk ä¿æåæ­¥
         .ui_clk                 (ui_clk                 ),  // output			ui_clk
         .ui_clk_sync_rst        (                       ),  // output			ui_clk_sync_rst
         .mmcm_locked            (                       ),  // output			mmcm_locked
@@ -293,7 +290,7 @@ mig_7series_0 u_mig_7series_0 (
         .app_zq_ack             (                       ),  // output			app_zq_ack
         
 //////////////////////////////////////////////////////////
-    // 从这里开始，是AXI4相关的端�?
+    // ä»è¿éå¼å§ï¼æ¯AXI4ç¸å³çç«¯å?
         // Slave Interface Write Address Ports
         .s_axi_awid             (m_axi_awid             ),  // input [3:0]	        s_axi_awid
         .s_axi_awaddr           (m_axi_awaddr           ),  // input [27:0]	        s_axi_awaddr
@@ -338,7 +335,7 @@ mig_7series_0 u_mig_7series_0 (
         .s_axi_rready           (m_axi_rready           ),  // input			s_axi_rready
 //////////////////////////////////////////////////////////
         // System Clock Ports
-        // sys_clk_i:�? DDR3 IP 提供的输入时�?
+        // sys_clk_i:ç»? DDR3 IP æä¾çè¾å¥æ¶é?
         .sys_clk_i              (sys_200m              ),  // input			sys_clk_i
         // active low
         .sys_rst                (pll0_locked              )   // 200MHZ                    sys_rst
@@ -348,3 +345,4 @@ mig_7series_0 u_mig_7series_0 (
 
 
 endmodule
+
